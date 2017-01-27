@@ -2,14 +2,11 @@ var feed = require('feed-read'),  // require the feed-read module
     http = require("http"),
     port = process.env.PORT || 5000, // allow heroku/nodejitsu to set port
     urls = [
-        "http://www.theguardian.com/technology/rss",
-        "http://feeds.bbci.co.uk/news/technology/rss.xml",
-        "http://feeds.skynews.com/feeds/rss/technology.xml",
-        "http://www.techmeme.com/feed.xml"
+        "http://fetchrss.com/rss/58191cb88a93f87f4ee0dfdd22358496719.atom"
     ]; // Example RSS Feeds
 
 // load css styles
-var css = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/foundation.min.css"> ';
+var css = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"> ';
 css = css + '<style type="text/css">' +require('fs').readFileSync('./style.css').toString() + '</style>'
 
 http.createServer(function (req, res) {
@@ -19,7 +16,7 @@ http.createServer(function (req, res) {
       "Transfer-Encoding": "chunked"
   });
   // setup simple html page:
-  res.write("<html>\n<head>\n<title>RSS Feeds - Stream</title>\n" +css +"</head>\n<body>");
+  res.write("<html>\n<head>\n<title>Moravian Daily Text</title>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />" +css +"</head>\n<body>");
 
   // loop through our list of RSS feed urls
   for (var j = 0; j < urls.length; j++) {
@@ -50,11 +47,8 @@ console.log("HTTP Listening on: http://localhost:"+port);
 
 // a mini-rendering function - you can expand this or add html markup
 function displayArticle(res, a) {
-
-  var author = a.author || a.feed.name; // some feeds don't have author (BBC!)
   // send the article content to client
   res.write('<div class="article">')
   res.write("<h3>"+a.title +"</h3>");
-  res.write("<p><strong>" +author +" - " +a.published +"</strong> <br />\n");
-  res.write(a.content+"</p> </div>\n");
+  res.write("<p>"+a.content+"</p> </div>\n");
 }
