@@ -1,12 +1,12 @@
 var feed = require('feed-read'),  // require the feed-read module
     http = require("http"),
-    port = process.env.PORT, // allow heroku/nodejitsu to set port
+    port = process.env.PORT || 5000, // allow heroku/nodejitsu to set port
     urls = [
         "http://fetchrss.com/rss/58191cb88a93f87f4ee0dfdd22358496719.atom"
     ]; // Example RSS Feeds
 
 // load css styles
-var css = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"> ';
+var css = '<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway"> ';
 css = css + '<style type="text/css">' +require('fs').readFileSync('./style.css').toString() + '</style>'
 
 http.createServer(function (req, res) {
@@ -48,7 +48,7 @@ console.log("HTTP Listening on: http://localhost:"+port);
 // a mini-rendering function - you can expand this or add html markup
 function displayArticle(res, a) {
   // send the article content to client
-  res.write('<div class="article">')
+  res.write('<div id="article">')
   res.write("<h3>"+a.title +"</h3>");
   res.write("<p>"+a.content+"</p> </div>\n");
 }
