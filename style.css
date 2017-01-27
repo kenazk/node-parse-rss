@@ -6,21 +6,19 @@ body {
   padding-top: 30px;
   margin-left: 20px;
   margin-top: 30px:
-  width: 320px;
-  max-width: 320px;
+  max-width: 960px;
 }
 
 h3 {
   font-family: Raleway;
-	font-size: 36px;
+	font-size: 10vw;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 500;
-	line-height: 15.4px;
 }
 p {
   font-family: Raleway;
-  font-size: 18px;
+  font-size: 3vw;
   font-style: normal;
 	font-variant: normal;
 	font-weight: 500;
