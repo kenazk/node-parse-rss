@@ -16,7 +16,7 @@ http.createServer(function (req, res) {
       "Transfer-Encoding": "chunked"
   });
   // setup simple html page:
-  res.write("<html>\n<head>\n<title>Moravian Daily Text</title>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />" +css +"</head>\n<body>");
+  res.write("<html>\n<head>\n<title>Moravian Daily Text</title>\n<link href=\"https://fonts.googleapis.com/css?family=Open+Sans\" rel=\"stylesheet\"><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />" +css +"</head>\n<body>");
 
 
 
