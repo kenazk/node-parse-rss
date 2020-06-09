@@ -2,7 +2,8 @@ var feed = require('feed-read'),  // require the feed-read module
     http = require("http"),
     port = process.env.PORT || 5000, // allow heroku/nodejitsu to set port
     urls = [
-        "http://fetchrss.com/rss/58191cb88a93f87f4ee0dfdd22358496719.atom"
+        // "http://fetchrss.com/rss/58191cb88a93f87f4ee0dfdd22358496719.atom"
+        "http://fetchrss.com/rss/5edfba298a93f82b388b45675edfba0b8a93f87a368b4568.atom"
     ]; // Example RSS Feeds
 
 // load css styles
